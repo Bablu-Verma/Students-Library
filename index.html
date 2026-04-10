@@ -28,6 +28,8 @@
     <!-- GLightbox CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 
+    <link rel="stylesheet" href="style.css">
+
     <script>
         tailwind.config = {
             theme: {
@@ -54,52 +56,21 @@
                             300: '#8da8ff',
                             400: '#678bff',
                             500: '#4169e1',
-                            600: '#fe0a0a',
-                            700: '#052460',
-                            800: '#041b45',
-                            900: '#021230',
+                            600: '#1e3a8a',
+                            700: '#1e3a5f',
+                            800: '#0f172a',
+                            900: '#0a0f1a',
                         }
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'pulse-slow': 'pulse 3s ease-in-out infinite',
                         'bounce-slow': 'bounce 3s ease-in-out infinite',
-                        'spin-slow': 'spin 8s linear infinite',
-                        'gradient': 'gradient 8s ease infinite',
-                        'shimmer': 'shimmer 2s linear infinite',
-                        'slide-up': 'slideUp 0.5s ease-out',
-                        'slide-down': 'slideDown 0.5s ease-out',
-                        'fade-in': 'fadeIn 0.5s ease-out',
-                        'scale-in': 'scaleIn 0.5s ease-out',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
                             '50%': { transform: 'translateY(-20px)' },
-                        },
-                        gradient: {
-                            '0%, 100%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' },
-                        },
-                        shimmer: {
-                            '0%': { backgroundPosition: '-200% 0' },
-                            '100%': { backgroundPosition: '200% 0' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        },
-                        slideDown: {
-                            '0%': { transform: 'translateY(-20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        scaleIn: {
-                            '0%': { transform: 'scale(0.9)', opacity: '0' },
-                            '100%': { transform: 'scale(1)', opacity: '1' },
                         },
                     }
                 }
@@ -107,709 +78,7 @@
         }
     </script>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Montserrat', sans-serif !important;
-        }
-
-        .testimonial-card p.italic,
-        blockquote,
-        q {
-            font-family: 'Merriweather', serif !important;
-        }
-
-        body {
-            overflow-x: hidden;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        /* Preloader */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #fe0a0a 0%, #4169e1 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .preloader.loaded {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .preloader-inner {
-            text-align: center;
-        }
-
-        .preloader-logo {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        .preloader-bar {
-            width: 200px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .preloader-bar::after {
-            content: '';
-            display: block;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, #f5d580, #f0c14b);
-            border-radius: 4px;
-            animation: loading 1.5s ease-in-out infinite;
-        }
-
-        @keyframes loading {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(300%);
-            }
-        }
-
-        /* Gradient Text */
-        .gradient-text {
-            background: linear-gradient(135deg, #fe0a0a 0%, #4169e1 50%, #fe0a0a 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient 3s ease infinite;
-        }
-
-        .gradient-text-gold {
-            background: linear-gradient(135deg, #f5d580 0%, #d4a84b 50%, #f5d580 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient 3s ease infinite;
-        }
-
-        /* Gradient Background */
-        .gradient-bg {
-            background: linear-gradient(135deg, #fe0a0a 0%, #4169e1 100%);
-        }
-
-        .gradient-bg-animated {
-            background: linear-gradient(-45deg, #fe0a0a, #4169e1, #052460, #678bff);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-
-        /* Glass Effect */
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .glass-dark {
-            background: rgba(6, 45, 132, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .glass-white {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        /* Card Hover Effects */
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-hover:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(6, 45, 132, 0.25);
-        }
-
-        .card-3d {
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-        .card-3d:hover {
-            transform: rotateY(5deg) rotateX(5deg);
-        }
-
-        /* Button Effects */
-        .btn-hover {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .btn-hover::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-hover:hover::before {
-            left: 100%;
-        }
-
-        .btn-hover:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px -5px rgba(6, 45, 132, 0.4);
-        }
-
-        .btn-ripple {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-ripple::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 10%);
-            background-repeat: no-repeat;
-            background-position: 50%;
-            transform: scale(10, 10);
-            opacity: 0;
-            transition: transform 0.5s, opacity 0.5s;
-        }
-
-        .btn-ripple:active::after {
-            transform: scale(0, 0);
-            opacity: 0.3;
-            transition: 0s;
-        }
-
-        /* Navigation */
-        .nav-link {
-            position: relative;
-            padding: 8px 0;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #f5d580, #d4a84b);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .nav-link:hover {
-            color: #fe0a0a;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .mobile-menu.open {
-            transform: translateX(0);
-        }
-
-        .hamburger {
-            width: 30px;
-            height: 20px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background: #fe0a0a;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger span:nth-child(1) {
-            top: 0;
-        }
-
-        .hamburger span:nth-child(2) {
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .hamburger span:nth-child(3) {
-            bottom: 0;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg);
-            top: 50%;
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg);
-            bottom: 50%;
-        }
-
-        /* Hero Section */
-        .hero-bg {
-            position: relative;
-            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 50%, #fdf7e3 100%);
-        }
-
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image:
-                radial-gradient(circle at 20% 80%, rgba(6, 45, 132, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(245, 213, 128, 0.1) 0%, transparent 50%);
-        }
-
-        .hero-pattern {
-            background-image:
-                radial-gradient(circle at 1px 1px, rgba(6, 45, 132, 0.1) 1px, transparent 0);
-            background-size: 40px 40px;
-        }
-
-        /* Floating Elements */
-        .float-element {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .float-element-delay-1 {
-            animation-delay: -2s;
-        }
-
-        .float-element-delay-2 {
-            animation-delay: -4s;
-        }
-
-        /* Parallax */
-        .parallax {
-            transition: transform 0.1s ease-out;
-        }
-
-        /* Image Overlays */
-        .img-overlay {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .img-overlay::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(6, 45, 132, 0.2), rgba(245, 213, 128, 0.1));
-            z-index: 1;
-            transition: opacity 0.3s ease;
-        }
-
-        .img-overlay:hover::before {
-            opacity: 0;
-        }
-
-        .img-overlay img {
-            transition: transform 0.5s ease;
-        }
-
-        .img-overlay:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Swiper Customization */
-        .swiper-pagination-bullet {
-            width: 12px;
-            height: 12px;
-            background: rgba(6, 45, 132, 0.3);
-            opacity: 1;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: linear-gradient(135deg, #fe0a0a, #4169e1);
-            width: 30px;
-            border-radius: 6px;
-        }
-
-        .swiper-button-next,
-        .swiper-button-prev {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .swiper-button-next::after,
-        .swiper-button-prev::after {
-            font-size: 18px;
-            color: #fe0a0a;
-            font-weight: bold;
-        }
-
-        /* Counter Animation */
-        .counter {
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Scroll Progress */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #fe0a0a, #4169e1, #f5d580);
-            z-index: 9999;
-            transition: width 0.1s ease;
-        }
-
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #fe0a0a, #4169e1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(6, 45, 132, 0.3);
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(6, 45, 132, 0.4);
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            animation: pulse-slow 2s infinite;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
-        }
-
-        .whatsapp-btn::before {
-            content: 'Chat with us!';
-            position: absolute;
-            right: 70px;
-            background: white;
-            color: #333;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            white-space: nowrap;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(10px);
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-btn:hover::before {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-        }
-
-        /* Section Dividers */
-        .wave-divider {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-        }
-
-        .wave-divider svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 80px;
-        }
-
-        /* Blob Shapes */
-        .blob {
-            border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-            animation: blob-morph 8s ease-in-out infinite;
-        }
-
-        @keyframes blob-morph {
-
-            0%,
-            100% {
-                border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-            }
-
-            25% {
-                border-radius: 58% 42% 30% 70% / 55% 45% 55% 45%;
-            }
-
-            50% {
-                border-radius: 30% 70% 58% 42% / 45% 55% 45% 55%;
-            }
-
-            75% {
-                border-radius: 70% 30% 42% 58% / 55% 45% 55% 45%;
-            }
-        }
-
-        /* Glow Effects */
-        .glow {
-            box-shadow: 0 0 40px rgba(6, 45, 132, 0.3);
-        }
-
-        .glow-gold {
-            box-shadow: 0 0 40px rgba(245, 213, 128, 0.4);
-        }
-
-        /* Text Shadow */
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Marquee */
-        .marquee {
-            overflow: hidden;
-        }
-
-        .marquee-content {
-            display: flex;
-            animation: marquee 20s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #fe0a0a, #4169e1);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #052460, #fe0a0a);
-        }
-
-        /* Pricing Cards */
-        .pricing-card {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 3s infinite;
-        }
-
-        .pricing-popular {
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            .pricing-popular {
-                transform: scale(1);
-            }
-        }
-
-        /* Gallery Grid */
-        .gallery-item {
-            cursor: pointer;
-            overflow: hidden;
-            border-radius: 16px;
-        }
-
-        .gallery-item img {
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.15);
-        }
-
-        /* Testimonial Cards */
-        .testimonial-card {
-            transition: all 0.4s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Stats Counter */
-        .stat-item {
-            position: relative;
-        }
-
-        .stat-item::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 1px;
-            height: 60%;
-            background: linear-gradient(180deg, transparent, rgba(6, 45, 132, 0.2), transparent);
-        }
-
-        .stat-item:last-child::after {
-            display: none;
-        }
-
-        /* Service Cards */
-        .service-icon {
-            transition: all 0.4s ease;
-        }
-
-        .card-hover:hover .service-icon {
-            transform: rotateY(360deg);
-        }
-
-        /* Responsive Fixes */
-        @media (max-width: 640px) {
-            .hero-stats {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .hero-stats .stat-divider {
-                width: 80%;
-                height: 1px;
-            }
-
-            .whatsapp-btn {
-                bottom: 80px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-            }
-
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-        }
-
-        /* Loading State for Images */
-        .img-loading {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-        }
-    </style>
 </head>
 
 <body class="font-sans bg-white text-gray-800 antialiased">
@@ -820,18 +89,13 @@
     <!-- Header / Navbar -->
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="header">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20 lg:h-24">
+            <div class="flex items-center justify-between h-16 lg:h-20">
                 <!-- Logo -->
                 <a href="#" class="flex items-center space-x-3 group">
                     <div class="relative w-12 h-12 sm:w-14 sm:h-14">
-                        <!-- Replace with your actual logo image -->
                         <img src="./asset/logo.png" alt="Students Library Logo"
                             class="w-full h-full object-contain rounded-xl duration-300">
-                        <div
-                            class="absolute -inset-1 bg-gradient-to-r from-navy-600 to-gold-400 rounded-xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-300">
-                        </div>
                     </div>
-
                 </a>
 
                 <!-- Desktop Navigation -->
@@ -860,7 +124,7 @@
                         <span class="hidden xl:inline">+91 8287678088</span>
                     </a>
                     <a href="https://wa.me/918287678088"
-                        class="hidden sm:inline-flex btn-hover btn-ripple px-6 py-3 gradient-bg text-white font-semibold rounded-full shadow-lg">
+                        class="hidden sm:inline-flex btn-hover px-6 py-3 gradient-bg text-white font-semibold rounded-full shadow-lg">
                         <i class="fas fa-calendar-check mr-2"></i>
                         Book Now
                     </a>
@@ -880,46 +144,46 @@
             id="mobileMenu">
             <div class="p-6">
                 <div class="flex justify-between items-center mb-8">
-                    <span class="text-xl font-bold gradient-text">Menu</span>
+                    <span class="text-xl font-bold text-navy-600">Menu</span>
                     <button class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center" id="closeMenu">
                         <i class="fas fa-times text-gray-600"></i>
                     </button>
                 </div>
                 <nav class="space-y-4">
                     <a href="#home"
-                        class="mobile-nav-link flex items-center p-4 rounded-xl hover:bg-gold-50 transition-colors group">
-                        <i class="fas fa-home w-8 text-navy-600 group-hover:text-gold-500 transition-colors"></i>
+                        class="mobile-nav-link flex items-center p-4 rounded-full hover:bg-gold-50 transition-colors group">
+                        <i class="fas fa-home w-8 text-navy-600"></i>
                         <span class="text-gray-700 font-medium">Home</span>
                     </a>
                     <a href="#about"
-                        class="mobile-nav-link flex items-center p-4 rounded-xl hover:bg-gold-50 transition-colors group">
-                        <i class="fas fa-info-circle w-8 text-navy-600 group-hover:text-gold-500 transition-colors"></i>
+                        class="mobile-nav-link flex items-center p-4 rounded-full hover:bg-gold-50 transition-colors group">
+                        <i class="fas fa-info-circle w-8 text-navy-600"></i>
                         <span class="text-gray-700 font-medium">About</span>
                     </a>
                     <a href="#services"
-                        class="mobile-nav-link flex items-center p-4 rounded-xl hover:bg-gold-50 transition-colors group">
-                        <i class="fas fa-cogs w-8 text-navy-600 group-hover:text-gold-500 transition-colors"></i>
+                        class="mobile-nav-link flex items-center p-4 rounded-full hover:bg-gold-50 transition-colors group">
+                        <i class="fas fa-cogs w-8 text-navy-600"></i>
                         <span class="text-gray-700 font-medium">Services</span>
                     </a>
                     <a href="#gallery"
-                        class="mobile-nav-link flex items-center p-4 rounded-xl hover:bg-gold-50 transition-colors group">
-                        <i class="fas fa-images w-8 text-navy-600 group-hover:text-gold-500 transition-colors"></i>
+                        class="mobile-nav-link flex items-center p-4 rounded-full hover:bg-gold-50 transition-colors group">
+                        <i class="fas fa-images w-8 text-navy-600"></i>
                         <span class="text-gray-700 font-medium">Gallery</span>
                     </a>
                     <a href="#pricing"
-                        class="mobile-nav-link flex items-center p-4 rounded-xl hover:bg-gold-50 transition-colors group">
-                        <i class="fas fa-tag w-8 text-navy-600 group-hover:text-gold-500 transition-colors"></i>
+                        class="mobile-nav-link flex items-center p-4 rounded-full hover:bg-gold-50 transition-colors group">
+                        <i class="fas fa-tag w-8 text-navy-600"></i>
                         <span class="text-gray-700 font-medium">Pricing</span>
                     </a>
                     <a href="#contact"
-                        class="mobile-nav-link flex items-center p-4 rounded-xl hover:bg-gold-50 transition-colors group">
-                        <i class="fas fa-envelope w-8 text-navy-600 group-hover:text-gold-500 transition-colors"></i>
+                        class="mobile-nav-link flex items-center p-4 rounded-full hover:bg-gold-50 transition-colors group">
+                        <i class="fas fa-envelope w-8 text-navy-600"></i>
                         <span class="text-gray-700 font-medium">Contact</span>
                     </a>
                 </nav>
                 <div class="mt-8 pt-8 border-t border-gray-200">
                     <a href="https://wa.me/918287678088"
-                        class="block w-full py-4 gradient-bg text-white font-semibold rounded-xl text-center shadow-lg">
+                        class="block w-full py-4 gradient-bg text-white font-semibold rounded-full text-center shadow-lg">
                         <i class="fas fa-calendar-check mr-2"></i>
                         Book Your Seat
                     </a>
@@ -945,16 +209,14 @@
     </header>
 
     <!-- Hero Section with Slider -->
-    <section id="home" class="relative  min-h-screen hero-bg overflow-hidden">
+    <section id="home" class="relative  hero-bg overflow-hidden">
         <!-- Background Decorations -->
         <div class="absolute inset-0 hero-pattern opacity-50"></div>
         <div class="absolute top-20 left-10 w-72 h-72 bg-navy-400/10 rounded-full blur-3xl float-element"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-gold-400/20 rounded-full blur-3xl float-element-delay-1">
-        </div>
-        <div class="absolute top-1/2 left-1/4 w-48 h-48 bg-navy-600/5 blob float-element-delay-2"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-gold-400/15 rounded-full blur-3xl"></div>
 
         <!-- Hero Slider -->
-        <div class="swiper hero-swiper pt-20">
+        <div class="swiper hero-swiper min-h-screen pt-32">
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
                 <div class="swiper-slide">
@@ -962,14 +224,14 @@
                         <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
                             <div class="relative z-10" data-aos="fade-right" data-aos-delay="200">
                                 <div
-                                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-gold-100 to-gold-200 text-navy-700 rounded-full text-sm font-semibold mb-6 shadow-sm">
-                                    <i class="fas fa-sparkles mr-2 text-gold-500 animate-pulse"></i>
+                                    class="inline-flex items-center px-4 py-2 bg-gold-100 text-navy-700 rounded-full text-sm font-semibold mb-6 shadow-sm">
+                                    <i class="fas fa-star mr-2 text-gold-500"></i>
                                     Premium Study Environment
                                 </div>
                                 <h1
                                     class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-navy-800 leading-tight mb-6">
-                                    Your Perfect Space to
-                                    <span class="gradient-text block">Focus & Succeed</span>
+                                    Your Perfect Space
+                                    <span class="gradient-text block">to Study</span>
                                 </h1>
                                 <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
                                     Escape distractions and immerse yourself in our thoughtfully designed study
@@ -979,20 +241,19 @@
                                 </p>
                                 <div class="flex flex-col sm:flex-row gap-4">
                                     <a href="https://wa.me/918287678088"
-                                        class="btn-hover btn-ripple inline-flex items-center justify-center px-8 py-4 gradient-bg text-white font-bold rounded-xl shadow-xl text-lg">
+                                        class="btn-hover inline-flex items-center justify-center px-8 py-4 gradient-bg text-white font-bold rounded-full shadow-xl text-lg">
                                         <i class="fas fa-calendar-check mr-3"></i>
                                         Book a Trial
                                     </a>
                                     <a href="#services"
-                                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-white text-navy-700 font-bold rounded-xl border-2 border-navy-200 hover:border-navy-400 hover:bg-gold-50 transition-all text-lg shadow-lg">
+                                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-white text-navy-700 font-bold rounded-full border-2 border-navy-200 hover:border-navy-400 hover:bg-navy-50 transition-all text-lg shadow-lg">
                                         <i class="fas fa-compass mr-3 text-navy-600"></i>
                                         Explore More
                                     </a>
                                 </div>
                             </div>
                             <div class="relative" data-aos="fade-left" data-aos-delay="400">
-                                <div
-                                    class="relative z-10 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-500">
+                                <div class="relative z-10 rounded-3xl shadow-2xl overflow-hidden">
                                     <img src="./asset/card.webp" alt="Students studying together"
                                         class="w-full h-[400px] lg:h-[500px] object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-navy-900/30 to-transparent">
@@ -1000,18 +261,19 @@
                                 </div>
                                 <!-- Floating Cards -->
                                 <div
-                                    class="absolute -top-6 -right-6 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-gold-300 to-gold-500 rounded-3xl opacity-60 animate-pulse">
+                                    class="absolute -top-6 -right-6 w-24 h-24 sm:w-32 sm:h-32 bg-gold-300 rounded-3xl opacity-40">
                                 </div>
                                 <div
-                                    class="absolute -bottom-8 -left-8 w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-navy-400 to-navy-600 rounded-full opacity-30 blob">
+                                    class="absolute -bottom-8 -left-8 w-32 h-32 sm:w-40 sm:h-40 bg-navy-400 rounded-full opacity-20">
                                 </div>
 
                                 <!-- Status Card -->
                                 <div
-                                    class="absolute top-1/2 -right-4 sm:-right-8 transform -translate-y-1/2 bg-white rounded-2xl shadow-2xl p-4 z-20 border border-gold-100 animate-bounce-slow">
+                                    class="absolute top-1/2 -right-4 sm:-right-8 transform -translate-y-1/2 bg-white rounded-2xl shadow-2xl p-4 z-20 border border-gold-100">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                                            <i class="fas fa-check text-green-600 text-xl"></i>
+                                        <div
+                                            class="w-12 h-12 bg-navy-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-navy-600 text-xl"></i>
                                         </div>
                                         <div>
                                             <p class="font-bold text-navy-700">Seats Available</p>
@@ -1030,14 +292,14 @@
                         <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
                             <div class="relative z-10">
                                 <div
-                                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-navy-100 to-navy-200 text-navy-700 rounded-full text-sm font-semibold mb-6 shadow-sm">
+                                    class="inline-flex items-center px-4 py-2 bg-navy-100 text-navy-700 rounded-full text-sm font-semibold mb-6 shadow-sm">
                                     <i class="fas fa-clock mr-2 text-navy-600"></i>
                                     Open 24/7
                                 </div>
                                 <h1
                                     class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-navy-800 leading-tight mb-6">
                                     Study Anytime,
-                                    <span class="gradient-text-gold block">Day or Night</span>
+                                    <span class="gradient-text block">Day or Night</span>
                                 </h1>
                                 <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
                                     Night owl or early bird? Our doors never close.
@@ -1046,30 +308,23 @@
                                 </p>
                                 <div class="flex flex-col sm:flex-row gap-4">
                                     <a href="#pricing"
-                                        class="btn-hover btn-ripple inline-flex items-center justify-center px-8 py-4 bg-gold-500 text-navy-800 font-bold rounded-xl shadow-xl text-lg">
+                                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-gold-500 text-navy-800 font-bold rounded-full shadow-xl text-lg">
                                         <i class="fas fa-tag mr-3"></i>
                                         View Plans
                                     </a>
                                     <a href="tel:+918287678088"
-                                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-white text-navy-700 font-bold rounded-xl border-2 border-gold-300 hover:bg-gold-50 transition-all text-lg shadow-lg">
-                                        <i class="fas fa-phone mr-3 text-green-600"></i>
+                                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-white text-navy-700 font-bold rounded-full border-2 border-gold-300 hover:bg-gold-50 transition-all text-lg shadow-lg">
+                                        <i class="fas fa-phone mr-3 text-navy-600"></i>
                                         Call Now
                                     </a>
                                 </div>
                             </div>
                             <div class="relative">
-                                <div
-                                    class="relative z-10 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-500">
+                                <div class="relative z-10 rounded-3xl shadow-2xl overflow-hidden">
                                     <img src="./asset/gallery4.jpeg" alt="Library at night"
                                         class="w-full h-[400px] lg:h-[500px] object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-navy-900/40 to-transparent">
                                     </div>
-                                </div>
-                                <div
-                                    class="absolute -top-4 -left-4 w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-br from-navy-500 to-navy-700 rounded-full opacity-40 animate-spin-slow">
-                                </div>
-                                <div
-                                    class="absolute -bottom-6 -right-6 w-36 h-36 bg-gradient-to-br from-gold-400 to-gold-600 rounded-3xl opacity-30 blob">
                                 </div>
                             </div>
                         </div>
@@ -1082,8 +337,8 @@
                         <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
                             <div class="relative z-10">
                                 <div
-                                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-green-200 text-green-700 rounded-full text-sm font-semibold mb-6 shadow-sm">
-                                    <i class="fas fa-trophy mr-2 text-green-600"></i>
+                                    class="inline-flex items-center px-4 py-2 bg-gold-100 text-navy-700 rounded-full text-sm font-semibold mb-6 shadow-sm">
+                                    <i class="fas fa-trophy mr-2 text-gold-600"></i>
                                     #1 in Madangir
                                 </div>
                                 <h1
@@ -1098,20 +353,19 @@
                                 </p>
                                 <div class="flex flex-col sm:flex-row gap-4">
                                     <a href="#testimonials"
-                                        class="btn-hover btn-ripple inline-flex items-center justify-center px-8 py-4 gradient-bg text-white font-bold rounded-xl shadow-xl text-lg">
+                                        class="btn-hover inline-flex items-center justify-center px-8 py-4 gradient-bg text-white font-bold rounded-full shadow-xl text-lg">
                                         <i class="fas fa-star mr-3"></i>
                                         Success Stories
                                     </a>
                                     <a href="https://wa.me/918287678088"
-                                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-white text-navy-700 font-bold rounded-xl border-2 border-navy-200 transition-all text-lg shadow-lg">
-                                        <i class="fab fa-whatsapp mr-3 text-green-600"></i>
+                                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-white text-navy-700 font-bold rounded-full border-2 border-navy-200 transition-all text-lg shadow-lg">
+                                        <i class="fab fa-whatsapp mr-3 text-navy-600"></i>
                                         WhatsApp Us
                                     </a>
                                 </div>
                             </div>
                             <div class="relative">
-                                <div
-                                    class="relative z-10 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-500">
+                                <div class="relative z-10 rounded-3xl shadow-2xl overflow-hidden">
                                     <img src="./asset/gallery7.jpeg" alt="Students celebrating success"
                                         class="w-full h-[400px] lg:h-[500px] object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-navy-900/30 to-transparent">
@@ -1130,14 +384,14 @@
         </div>
 
         <!-- Stats Bar -->
-        <div class="w-full bg-white/90 backdrop-blur-lg border-t border-gold-200 py-6">
+        <div class="w-full bg-white/90 backdrop-blur-lg pt-14 pb-6">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap justify-center lg:justify-between items-center gap-8">
-                    <div class="stat-item text-center px-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center px-6" data-aos="fade-up" data-aos-delay="100">
                         <p class="text-3xl sm:text-4xl font-black text-navy-600 counter" data-target="500">0</p>
                         <p class="text-gray-500 text-sm font-medium">Active Members</p>
                     </div>
-                    <div class="stat-item text-center px-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center px-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="flex items-center justify-center gap-1 text-gold-500 mb-1">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1148,11 +402,11 @@
                         <p class="text-3xl sm:text-4xl font-black text-navy-600">5.0</p>
                         <p class="text-gray-500 text-sm font-medium">Google Rating</p>
                     </div>
-                    <div class="stat-item text-center px-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center px-6" data-aos="fade-up" data-aos-delay="300">
                         <p class="text-3xl sm:text-4xl font-black text-navy-600">24/7</p>
                         <p class="text-gray-500 text-sm font-medium">Always Open</p>
                     </div>
-                    <div class="stat-item text-center px-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center px-6" data-aos="fade-up" data-aos-delay="400">
                         <p class="text-3xl sm:text-4xl font-black text-navy-600 counter" data-target="100">0</p>
                         <p class="text-gray-500 text-sm font-medium">Premium Seats</p>
                     </div>
@@ -1161,38 +415,29 @@
         </div>
     </section>
 
-
-
     <!-- About Section -->
-    <section id="about" class="py-16 lg:py-20 bg-gradient-to-b from-white to-gold-50 relative overflow-hidden">
-        <!-- Background Decoration -->
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gold-50 to-transparent opacity-50"></div>
-
+    <section id="about" class="py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <!-- Image Grid -->
                 <div class="relative" data-aos="fade-right">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-4">
-                            <div
-                                class="img-overlay rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-500">
+                            <div class="img-overlay rounded-2xl shadow-xl overflow-hidden">
                                 <img src="./asset/gallery1.jpeg" alt="Library interior"
                                     class="w-full h-48 sm:h-56 object-cover">
                             </div>
-                            <div
-                                class="img-overlay rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-500">
+                            <div class="img-overlay rounded-2xl shadow-xl overflow-hidden">
                                 <img src="./asset/gallery2.jpeg" alt="Reading room"
                                     class="w-full h-40 sm:h-48 object-cover">
                             </div>
                         </div>
                         <div class="space-y-4 mt-8">
-                            <div
-                                class="img-overlay rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-500">
+                            <div class="img-overlay rounded-2xl shadow-xl overflow-hidden">
                                 <img src="./asset/gallery3.jpeg" alt="Study area"
                                     class="w-full h-40 sm:h-48 object-cover">
                             </div>
-                            <div
-                                class="img-overlay rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-500">
+                            <div class="img-overlay rounded-2xl shadow-xl overflow-hidden">
                                 <img src="./asset/gallery4.jpeg" alt="Student workspace"
                                     class="w-full h-48 sm:h-56 object-cover">
                             </div>
@@ -1200,7 +445,7 @@
                     </div>
                     <!-- Experience Badge -->
                     <div
-                        class="absolute -bottom-6 -right-6 sm:bottom-8 sm:right-8 bg-gradient-to-br from-navy-600 to-navy-800 text-white p-6 rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                        class="absolute -bottom-6 -right-6 sm:bottom-8 sm:right-8 bg-navy-600 text-white p-6 rounded-2xl shadow-2xl">
                         <p class="text-4xl font-black">5+</p>
                         <p class="text-gold-300 font-medium">Years of<br>Excellence</p>
                     </div>
@@ -1219,24 +464,22 @@
                     </h2>
                     <p class="text-lg text-gray-600 mb-6 leading-relaxed">
                         <strong class="text-navy-700">Students Library</strong> offers a quiet, air-conditioned
-                        environment tailored for focused study and exam
-                        preparation. With <strong>24/7 access</strong>, high-speed Wi-Fi, and New seating, we
-                        provide the perfect
-                        sanctuary for night owls and early risers alike.
+                        environment tailored for focused study and exam preparation. With <strong>24/7 access</strong>,
+                        high-speed Wi-Fi, and New seating, we provide the perfect sanctuary for night owls and early
+                        risers alike.
                     </p>
                     <p class="text-lg text-gray-600 mb-8 leading-relaxed">
                         Whether you're pulling an all-night session for <strong class="text-navy-700">UPSC</strong> or
-                        need a quiet corner for your
-                        morning research, our doors are always open to help you succeed.
+                        need a quiet corner for your morning research, our doors are always open to help you succeed.
                     </p>
 
-                    <!-- Feature Cards -->
+                    <!-- Feature Cards - Consistent Colors -->
                     <div class="grid sm:grid-cols-2 gap-4 mb-8">
                         <div
-                            class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow group">
+                            class="flex items-start gap-4 p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow group border border-gray-100">
                             <div
-                                class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                                <i class="fas fa-leaf text-gold-300 text-xl"></i>
+                                class="w-12 h-12 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-leaf text-white text-lg"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-navy-700 mb-1">Peaceful Ambiance</h4>
@@ -1244,10 +487,10 @@
                             </div>
                         </div>
                         <div
-                            class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow group">
+                            class="flex items-start gap-4 p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow group border border-gray-100">
                             <div
-                                class="w-12 h-12 bg-gold-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                                <i class="fas fa-couch text-navy-600 text-xl"></i>
+                                class="w-12 h-12 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-couch text-white text-lg"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-navy-700 mb-1">Premium Comfort</h4>
@@ -1255,10 +498,10 @@
                             </div>
                         </div>
                         <div
-                            class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow group">
+                            class="flex items-start gap-4 p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow group border border-gray-100">
                             <div
-                                class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                                <i class="fas fa-users text-gold-300 text-xl"></i>
+                                class="w-12 h-12 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-users text-white text-lg"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-navy-700 mb-1">Community Vibes</h4>
@@ -1266,10 +509,10 @@
                             </div>
                         </div>
                         <div
-                            class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow group">
+                            class="flex items-start gap-4 p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow group border border-gray-100">
                             <div
-                                class="w-12 h-12 bg-gold-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                                <i class="fas fa-chart-line text-navy-600 text-xl"></i>
+                                class="w-12 h-12 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-chart-line text-white text-lg"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-navy-700 mb-1">Proven Results</h4>
@@ -1279,7 +522,7 @@
                     </div>
 
                     <a href="https://wa.me/918287678088"
-                        class="btn-hover btn-ripple inline-flex items-center px-8 py-4 gradient-bg text-white font-bold rounded-xl shadow-xl">
+                        class="btn-hover inline-flex items-center px-8 py-4 gradient-bg text-white font-bold rounded-full shadow-xl">
                         <i class="fas fa-arrow-right mr-3"></i>
                         Join Us Today
                     </a>
@@ -1288,14 +531,9 @@
         </div>
     </section>
 
-    <!-- Services / Facilities Section -->
+    <!-- Services / Facilities Section - CONSISTENT COLORS -->
     <section id="services" class="py-16 lg:py-20 bg-white relative overflow-hidden">
-        <!-- Background Pattern -->
         <div class="absolute inset-0 hero-pattern opacity-30"></div>
-
-        <!-- Decorative Elements -->
-        <div class="absolute top-20 left-10 w-64 h-64 bg-navy-100 rounded-full blur-3xl opacity-30"></div>
-        <div class="absolute bottom-20 right-10 w-80 h-80 bg-gold-200 rounded-full blur-3xl opacity-30"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <!-- Section Header -->
@@ -1314,135 +552,128 @@
                 </p>
             </div>
 
-            <!-- Services Grid -->
+            <!-- Services Grid - ALL SAME NAVY/GOLD COLORS -->
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
 
                 <!-- Wi-Fi -->
-                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-gold-200 transition-all duration-300"
+                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-navy-200 transition-all duration-300"
                     data-aos="fade-up" data-aos-delay="100">
                     <div
-                        class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
-                        <i class="fas fa-wifi text-gold-300 text-2xl"></i>
+                        class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                        <i class="fas fa-wifi text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-navy-700 mb-2 group-hover:text-navy-600">High-Speed Wi-Fi</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Ultra-fast 1Gbps fiber connection for seamless
-                        browsing</p>
+                    <h3 class="text-lg font-bold text-navy-700 mb-2">High-Speed Wi-Fi</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Ultra-fast 1Gbps fiber connection</p>
                 </div>
 
                 <!-- Air Conditioning -->
-                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-blue-200 transition-all duration-300"
+                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-navy-200 transition-all duration-300"
                     data-aos="fade-up" data-aos-delay="150">
                     <div
-                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                        class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300 shadow-lg">
                         <i class="fas fa-snowflake text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-navy-700 mb-2 group-hover:text-blue-600">Fully AC</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Centralized climate control at perfect 24°C</p>
+                    <h3 class="text-lg font-bold text-navy-700 mb-2">Fully AC</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Perfect 24°C temperature always</p>
                 </div>
 
                 <!-- Silent Zones -->
-                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-purple-200 transition-all duration-300"
+                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-navy-200 transition-all duration-300"
                     data-aos="fade-up" data-aos-delay="200">
                     <div
-                        class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                        class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300 shadow-lg">
                         <i class="fas fa-volume-xmark text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-navy-700 mb-2 group-hover:text-purple-600">Silent Zones</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Dedicated zero-noise areas for focus</p>
+                    <h3 class="text-lg font-bold text-navy-700 mb-2">Silent Zones</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Dedicated zero-noise areas</p>
                 </div>
 
                 <!-- Ergonomic Chairs -->
-                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-amber-200 transition-all duration-300"
+                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-navy-200 transition-all duration-300"
                     data-aos="fade-up" data-aos-delay="250">
                     <div
-                        class="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                        class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300 shadow-lg">
                         <i class="fas fa-chair text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-navy-700 mb-2 group-hover:text-amber-600">New Chairs</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Premium seating for long study hours</p>
+                    <h3 class="text-lg font-bold text-navy-700 mb-2">New Chairs</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Premium seating for long hours</p>
                 </div>
 
                 <!-- Charging Points -->
-                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-green-200 transition-all duration-300"
+                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-navy-200 transition-all duration-300"
                     data-aos="fade-up" data-aos-delay="300">
                     <div
-                        class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                        class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300 shadow-lg">
                         <i class="fas fa-plug text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-navy-700 mb-2 group-hover:text-green-600">Charging Points</h3>
+                    <h3 class="text-lg font-bold text-navy-700 mb-2">Charging Points</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">USB-C & power at every desk</p>
                 </div>
 
-                <!-- Cafeteria -->
-                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-rose-200 transition-all duration-300"
+                <!-- RO Water -->
+                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-navy-200 transition-all duration-300"
                     data-aos="fade-up" data-aos-delay="350">
                     <div
-                        class="w-16 h-16 bg-gradient-to-br from-rose-500 to-rose-600 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                        class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300 shadow-lg">
                         <i class="fas fa-mug-hot text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-navy-700 mb-2 group-hover:text-rose-600">RO Water</h3>
+                    <h3 class="text-lg font-bold text-navy-700 mb-2">RO Water</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Fresh purified water</p>
                 </div>
 
                 <!-- Lockers -->
-                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-cyan-200 transition-all duration-300"
+                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-navy-200 transition-all duration-300"
                     data-aos="fade-up" data-aos-delay="400">
                     <div
-                        class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                        class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300 shadow-lg">
                         <i class="fas fa-lock text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-navy-700 mb-2 group-hover:text-cyan-600">Personal Lockers</h3>
+                    <h3 class="text-lg font-bold text-navy-700 mb-2">Personal Lockers</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Secure storage for belongings</p>
                 </div>
 
                 <!-- CCTV Security -->
-                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-gold-200 transition-all duration-300"
+                <div class="card-hover group bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-navy-200 transition-all duration-300"
                     data-aos="fade-up" data-aos-delay="450">
                     <div
-                        class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
-                        <i class="fas fa-shield-halved text-gold-300 text-2xl"></i>
+                        class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                        <i class="fas fa-shield-halved text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-navy-700 mb-2 group-hover:text-navy-600">24/7 Security</h3>
+                    <h3 class="text-lg font-bold text-navy-700 mb-2">24/7 Security</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">CCTV surveillance always</p>
                 </div>
 
             </div>
 
-            <!-- Additional Features Row -->
+            <!-- Additional Features Row - CONSISTENT COLORS -->
             <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="500">
-                <div class="flex items-center gap-3 bg-gold-50 rounded-xl p-4 border border-gold-100">
+                <div class="flex items-center gap-3 bg-navy-50 rounded-xl p-2 px-4 border border-navy-100">
                     <i class="fas fa-clock text-navy-600 text-xl"></i>
                     <span class="text-navy-700 font-semibold text-sm">Open 24/7</span>
                 </div>
-                <div class="flex items-center gap-3 bg-green-50 rounded-xl p-4 border border-green-100">
-                    <i class="fas fa-leaf text-green-600 text-xl"></i>
+                <div class="flex items-center gap-3 bg-gold-50 rounded-xl p-2 px-4 border border-gold-200">
+                    <i class="fas fa-leaf text-gold-600 text-xl"></i>
                     <span class="text-navy-700 font-semibold text-sm">Clean Environment</span>
                 </div>
-                <div class="flex items-center gap-3 bg-blue-50 rounded-xl p-4 border border-blue-100">
-                    <i class="fas fa-lightbulb text-blue-600 text-xl"></i>
+                <div class="flex items-center gap-3 bg-navy-50 rounded-xl p-2 px-4 border border-navy-100">
+                    <i class="fas fa-lightbulb text-navy-600 text-xl"></i>
                     <span class="text-navy-700 font-semibold text-sm">Proper Lighting</span>
                 </div>
-                <div class="flex items-center gap-3 bg-purple-50 rounded-xl p-4 border border-purple-100">
-                    <i class="fas fa-restroom text-purple-600 text-xl"></i>
+                <div class="flex items-center gap-3 bg-gold-50 rounded-xl p-2 px-4 border border-gold-200">
+                    <i class="fas fa-restroom text-gold-600 text-xl"></i>
                     <span class="text-navy-700 font-semibold text-sm">Clean Washrooms</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Banner -->
-    <section class="py-16 lg:py-24 gradient-bg-animated relative overflow-hidden">
-        <!-- Animated Background Elements -->
-        <div class="absolute inset-0 hero-pattern opacity-20"></div>
-        <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blob">
-        </div>
-        <div
-            class="absolute bottom-0 right-0 w-80 h-80 bg-gold-400/10 rounded-full translate-x-1/3 translate-y-1/3 blob">
-        </div>
+    <!-- CTA Banner - SIMPLIFIED COLORS -->
+    <section class="py-16 lg:py-24 gradient-bg relative overflow-hidden">
+        <div class="absolute inset-0 hero-pattern opacity-10"></div>
 
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <div data-aos="zoom-in">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6 text-shadow">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6">
                     Ready to Ace Your Exams?
                 </h2>
                 <p class="text-xl text-gold-100 mb-10 max-w-2xl mx-auto">
@@ -1451,12 +682,12 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="https://wa.me/918287678088"
-                        class="btn-hover btn-ripple inline-flex items-center justify-center px-8 py-4 bg-gold-400 text-navy-800 font-bold rounded-xl shadow-2xl text-lg">
+                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-gold-400 text-navy-800 font-bold rounded-full shadow-2xl text-lg">
                         <i class="fab fa-whatsapp mr-3 text-2xl"></i>
                         Chat on WhatsApp
                     </a>
                     <a href="tel:+918287678088"
-                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-white/10 border-2 border-gold-300 text-white font-bold rounded-xl hover:bg-white/20 transition-all text-lg">
+                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-white/20 border-2 border-white text-white font-bold rounded-full hover:bg-white/30 transition-all text-lg">
                         <i class="fas fa-phone mr-3"></i>
                         Call: +91 8287678088
                     </a>
@@ -1465,8 +696,8 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-16 lg:py-20 bg-gradient-to-b from-gold-50 to-white relative overflow-hidden">
+    <!-- Pricing Section - CONSISTENT COLORS -->
+    <section id="pricing" class="py-16 lg:py-20 bg-gray-50 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                 <div
@@ -1485,11 +716,8 @@
 
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <!-- Monthly Plan -->
-                <div class="card-hover pricing-card bg-white rounded-3xl p-8 border-2 border-gold-200 shadow-lg relative overflow-hidden"
+                <div class="card-hover bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg relative overflow-hidden"
                     data-aos="fade-up" data-aos-delay="100">
-                    <div
-                        class="absolute top-0 right-0 w-32 h-32 bg-gold-100 rounded-full -translate-y-1/2 translate-x-1/2">
-                    </div>
                     <div class="relative">
                         <h3 class="text-xl font-bold text-navy-700 mb-2">Single Shift</h3>
                         <p class="text-gray-500 text-sm mb-6">Perfect for short-term needs</p>
@@ -1500,52 +728,46 @@
                         </div>
                         <ul class="space-y-4 mb-8">
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 Access (6AM - 2PM)
                             </li>
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 High-speed Wi-Fi
                             </li>
-
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 New Chair
                             </li>
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 Air conditioner
                             </li>
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 Free RO Water
                             </li>
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 Locker access + ₹100
                             </li>
-
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 Priority seating + ₹200
                             </li>
                         </ul>
                         <a href="https://wa.me/918287678088"
-                            class="btn-hover block w-full py-4 px-6 text-center bg-gold-100 text-navy-700 font-bold rounded-xl hover:bg-gold-200 transition-all">
+                            class="btn-hover block w-full py-4 px-6 text-center bg-navy-100 text-navy-700 font-bold rounded-full hover:bg-navy-200 transition-all">
                             Get Started
                         </a>
                     </div>
                 </div>
 
                 <!-- Quarterly Plan (Popular) -->
-                <div class="card-hover pricing-card pricing-popular gradient-bg rounded-3xl p-8 shadow-2xl relative overflow-hidden md:-translate-y-4"
+                <div class="card-hover pricing-popular gradient-bg rounded-3xl p-8 shadow-2xl relative overflow-hidden md:-translate-y-4"
                     data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2">
-                    </div>
                     <div class="absolute top-4 left-4">
-                        <span
-                            class="px-4 py-2 bg-gold-400 text-navy-800 text-xs font-bold rounded-full shadow-lg animate-pulse">
+                        <span class="px-4 py-2 bg-gold-400 text-navy-800 text-xs font-bold rounded-full shadow-lg">
                             🔥 MOST POPULAR
                         </span>
                     </div>
@@ -1561,7 +783,7 @@
                         <ul class="space-y-4 mb-8">
                             <li class="flex items-center text-white">
                                 <i class="fas fa-check-circle text-gold-300 mr-3"></i>
-                                Access Any Tow Shift
+                                Access Any Two Shift
                             </li>
                             <li class="flex items-center text-white">
                                 <i class="fas fa-check-circle text-gold-300 mr-3"></i>
@@ -1579,7 +801,6 @@
                                 <i class="fas fa-check-circle text-gold-300 mr-3"></i>
                                 Free RO Water
                             </li>
-
                             <li class="flex items-center text-white">
                                 <i class="fas fa-check-circle text-gold-300 mr-3"></i>
                                 Locker access + ₹100
@@ -1588,23 +809,17 @@
                                 <i class="fas fa-check-circle text-gold-300 mr-3"></i>
                                 Priority seating + ₹200
                             </li>
-
-
                         </ul>
                         <a href="https://wa.me/918287678088"
-                            class="btn-hover btn-ripple block w-full py-4 px-6 text-center bg-gold-400 text-navy-800 font-bold rounded-xl shadow-lg">
+                            class="btn-hover block w-full py-4 px-6 text-center bg-gold-400 text-navy-800 font-bold rounded-full shadow-lg">
                             Get Started
                         </a>
                     </div>
                 </div>
 
                 <!-- Yearly Plan -->
-                <div class="card-hover pricing-card bg-white rounded-3xl p-8 border-2 border-gold-200 shadow-lg relative overflow-hidden"
+                <div class="card-hover bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg relative overflow-hidden"
                     data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="absolute top-0 right-0 w-32 h-32 bg-navy-100 rounded-full -translate-y-1/2 translate-x-1/2">
-                    </div>
-
                     <div class="relative pt-8">
                         <h3 class="text-xl font-bold text-navy-700 mb-2">Three Shift</h3>
                         <p class="text-gray-500 text-sm mb-6">Commit to your success</p>
@@ -1616,38 +831,36 @@
 
                         <ul class="space-y-4 mb-8">
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 Full day access 24/7
                             </li>
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 High-speed Wi-Fi
                             </li>
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 Air conditioner
                             </li>
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 Free RO Water
                             </li>
-
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 New Chair
                             </li>
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 Locker access + ₹100
                             </li>
-
                             <li class="flex items-center text-gray-600">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-navy-600 mr-3"></i>
                                 Priority seating + ₹200
                             </li>
                         </ul>
                         <a href="https://wa.me/918287678088"
-                            class="btn-hover block w-full py-4 px-6 text-center bg-navy-600 text-white font-bold rounded-xl shadow-lg hover:bg-navy-700 transition-all">
+                            class="btn-hover block w-full py-4 px-6 text-center bg-navy-600 text-white font-bold rounded-full shadow-lg hover:bg-navy-700 transition-all">
                             Get Started
                         </a>
                     </div>
@@ -1657,7 +870,7 @@
             <div class="text-center mt-12" data-aos="fade-up">
                 <p class="text-gray-500 flex items-center justify-center flex-wrap gap-4">
                     <span class="flex items-center">
-                        <i class="fas fa-shield-halved text-green-500 mr-2"></i>
+                        <i class="fas fa-shield-halved text-navy-500 mr-2"></i>
                         2-day Free Trail guarantee
                     </span>
                     <span class="flex items-center">
@@ -1689,7 +902,7 @@
 
             <!-- Gallery Grid -->
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                <a href="./asset/gallery3.jpeg"
                     class="glightbox gallery-item col-span-2 row-span-2 relative rounded-2xl overflow-hidden shadow-xl group">
                     <img src="./asset/gallery3.jpeg" alt="Students studying"
                         class="w-full h-full object-cover min-h-[300px]">
@@ -1703,7 +916,7 @@
                     </div>
                 </a>
 
-                <a href="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                <a href="./asset/gallery6.jpeg"
                     class="glightbox gallery-item relative rounded-2xl overflow-hidden shadow-lg group">
                     <img src="./asset/gallery6.jpeg" alt="Library books" class="w-full h-48 object-cover">
                     <div
@@ -1712,7 +925,7 @@
                     </div>
                 </a>
 
-                <a href="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                <a href="./asset/gallery7.jpeg"
                     class="glightbox gallery-item relative rounded-2xl overflow-hidden shadow-lg group">
                     <img src="./asset/gallery7.jpeg" alt="Reading area" class="w-full h-48 object-cover">
                     <div
@@ -1721,7 +934,7 @@
                     </div>
                 </a>
 
-                <a href="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                <a href="./asset/gallery8.jpeg"
                     class="glightbox gallery-item relative rounded-2xl overflow-hidden shadow-lg group">
                     <img src="./asset/gallery8.jpeg" alt="Study desks" class="w-full h-48 object-cover">
                     <div
@@ -1730,7 +943,7 @@
                     </div>
                 </a>
 
-                <a href="https://images.unsplash.com/photo-1568667256549-094345857637?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                <a href="./asset/gallery9.jpeg"
                     class="glightbox gallery-item relative rounded-2xl overflow-hidden shadow-lg group">
                     <img src="./asset/gallery9.jpeg" alt="Modern library" class="w-full h-48 object-cover">
                     <div
@@ -1739,7 +952,7 @@
                     </div>
                 </a>
 
-                <a href="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                <a href="./asset/gallery2.jpeg"
                     class="glightbox gallery-item relative rounded-2xl overflow-hidden shadow-lg group col-span-2">
                     <img src="./asset/gallery2.jpeg" alt="Group study" class="w-full h-48 object-cover">
                     <div
@@ -1752,12 +965,12 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 lg:py-20 bg-gradient-to-b from-gold-50 to-white relative overflow-hidden">
+    <section id="testimonials" class="py-16 lg:py-20 bg-gray-50 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                 <div
                     class="inline-flex items-center px-4 py-2 bg-gold-100 text-navy-700 rounded-full text-sm font-semibold mb-6">
-                    <i class="fas fa-heart mr-2 text-rose-500"></i>
+                    <i class="fas fa-heart mr-2 text-navy-600"></i>
                     Testimonials
                 </div>
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy-800 mb-6">
@@ -1770,7 +983,7 @@
                 <div class="swiper-wrapper">
                     <!-- Testimonial 1 -->
                     <div class="swiper-slide">
-                        <div class="testimonial-card bg-white rounded-3xl p-8 shadow-xl border border-gold-100 h-full">
+                        <div class="testimonial-card bg-white rounded-3xl p-8 shadow-xl border border-gray-100 h-full">
                             <div class="flex items-center gap-1 text-gold-500 mb-4">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -1796,7 +1009,7 @@
 
                     <!-- Testimonial 2 -->
                     <div class="swiper-slide">
-                        <div class="testimonial-card bg-white rounded-3xl p-8 shadow-xl border border-gold-100 h-full">
+                        <div class="testimonial-card bg-white rounded-3xl p-8 shadow-xl border border-gray-100 h-full">
                             <div class="flex items-center gap-1 text-gold-500 mb-4">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -1821,7 +1034,7 @@
 
                     <!-- Testimonial 3 -->
                     <div class="swiper-slide">
-                        <div class="testimonial-card bg-white rounded-3xl p-8 shadow-xl border border-gold-100 h-full">
+                        <div class="testimonial-card bg-white rounded-3xl p-8 shadow-xl border border-gray-100 h-full">
                             <div class="flex items-center gap-1 text-gold-500 mb-4">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -1830,8 +1043,8 @@
                                 <i class="fas fa-star"></i>
                             </div>
                             <p class="text-gray-600 mb-6 leading-relaxed text-lg italic">
-                                "Amazing facilities and very affordable. The New chairs are so comfortable for
-                                long study hours. Cleared my banking exam thanks to this place!"
+                                "Amazing facilities and very affordable. The New chairs are so comfortable for long
+                                study hours. Cleared my banking exam thanks to this place!"
                             </p>
                             <div class="flex items-center gap-4">
                                 <img src="./asset/t-2.avif" alt="Student"
@@ -1846,7 +1059,7 @@
 
                     <!-- Testimonial 4 -->
                     <div class="swiper-slide">
-                        <div class="testimonial-card bg-white rounded-3xl p-8 shadow-xl border border-gold-100 h-full">
+                        <div class="testimonial-card bg-white rounded-3xl p-8 shadow-xl border border-gray-100 h-full">
                             <div class="flex items-center gap-1 text-gold-500 mb-4">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -1874,31 +1087,626 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 lg:py-20 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 hero-pattern opacity-30"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <div
+                    class="inline-flex items-center px-4 py-2 bg-gold-100 text-navy-700 rounded-full text-sm font-semibold mb-6">
+                    <i class="fas fa-circle-question mr-2 text-navy-600"></i>
+                    FAQ
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy-800 mb-6">
+                    Frequently Asked
+                    <span class="gradient-text">Questions</span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Got questions? We've got answers! Find everything you need to know about Students Library.
+                </p>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="200">
+
+                <!-- FAQ Item 1 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-navy-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-navy-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">What are the library timings?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>Our library is open <strong class="text-navy-700">24 hours a day, 7 days a week</strong>!
+                                Whether you're an early bird or a night owl, you can study anytime that suits you best.
+                                We never close - not even on holidays!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-indian-rupee-sign text-gold-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">What are the membership fees?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>We offer flexible plans to suit every budget:</p>
+                            <ul class="mt-3 space-y-2">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i>
+                                    <strong>Single Shift:</strong> ₹599/month
+                                </li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i>
+                                    <strong>Two Shifts:</strong> ₹899/month
+                                </li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i>
+                                    <strong>Three Shifts (24/7):</strong> ₹1399/month
+                                </li>
+                            </ul>
+                            <p class="mt-3">Additional services: Locker +₹100, Priority Seating +₹200</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-navy-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-calendar-check text-navy-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">Is there a free trial available?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>Yes! We offer a <strong class="text-navy-700">2-day FREE trial</strong> for all new
+                                students. You can experience our facilities, environment, and services before committing
+                                to a membership. Just bring a valid ID proof to get started!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-wifi text-gold-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">What facilities are available?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>We provide premium facilities including:</p>
+                            <div class="grid grid-cols-2 gap-2 mt-3">
+                                <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i>
+                                    High-Speed WiFi</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Air
+                                    Conditioning</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i>
+                                    Comfortable Chairs</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i>
+                                    Charging Points</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i>
+                                    Personal Lockers</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> RO
+                                    Water</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> CCTV
+                                    Security</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Clean
+                                    Washrooms</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-navy-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-navy-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">Where is the library located?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>We are located at:</p>
+                            <p class="mt-2 font-semibold text-navy-700">O1st/1, Shop no 1, F3, Durbal Ji Nath Marg,
+                                Block CPO, Block F, Doctor Ambedkar Nagar, Madangir, New Delhi - 110062</p>
+                            <p class="mt-3">Near Madangir Metro Station. Easy to reach by metro and bus!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-credit-card text-gold-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">What payment methods are accepted?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>We accept multiple payment methods for your convenience:</p>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <span class="px-3 py-1 bg-navy-100 rounded-full text-navy-700 text-sm font-medium">💵
+                                    Cash</span>
+                                <span class="px-3 py-1 bg-navy-100 rounded-full text-navy-700 text-sm font-medium">📱
+                                    UPI</span>
+                                <span class="px-3 py-1 bg-navy-100 rounded-full text-navy-700 text-sm font-medium">💳
+                                    Paytm</span>
+                                <span class="px-3 py-1 bg-navy-100 rounded-full text-navy-700 text-sm font-medium">📲
+                                    PhonePe</span>
+                                <span class="px-3 py-1 bg-navy-100 rounded-full text-navy-700 text-sm font-medium">🏦
+                                    Google Pay</span>
+                                <span class="px-3 py-1 bg-navy-100 rounded-full text-navy-700 text-sm font-medium">💳
+                                    Bank Transfer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-navy-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-id-card text-navy-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">What documents are required for
+                                registration?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>For registration, you need to bring:</p>
+                            <ul class="mt-3 space-y-2">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> One
+                                    passport-size photograph</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Valid ID
+                                    proof (Aadhar/PAN/Voter ID)</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Mobile
+                                    number for registration</li>
+                            </ul>
+                            <p class="mt-3">Registration takes only 5 minutes!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-volume-xmark text-gold-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">Are there any rules to follow?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>Yes, we have simple rules to maintain a peaceful environment:</p>
+                            <ul class="mt-3 space-y-2">
+                                <li class="flex items-center gap-2"><i class="fas fa-volume-xmark text-navy-600"></i>
+                                    Maintain silence at all times</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-phone-slash text-navy-600"></i>
+                                    Keep mobile phones on silent</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-utensils text-navy-600"></i> No
+                                    eating inside the study area</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-smoking-ban text-navy-600"></i> No
+                                    smoking or tobacco</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-user-check text-navy-600"></i>
+                                    Carry your ID card daily</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 9 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-navy-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-exchange-alt text-navy-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">Can I change my shift timings?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>Yes, you can change your shift timings! Here are the available shifts:</p>
+                            <ul class="mt-3 space-y-2">
+                                <li class="flex items-center gap-2"><i class="fas fa-sun text-yellow-500"></i>
+                                    <strong>Morning Shift:</strong> 6:00 AM - 2:00 PM
+                                </li>
+                                <li class="flex items-center gap-2"><i class="fas fa-cloud-sun text-orange-500"></i>
+                                    <strong>Afternoon Shift:</strong> 2:00 PM - 10:00 PM
+                                </li>
+                                <li class="flex items-center gap-2"><i class="fas fa-moon text-purple-500"></i>
+                                    <strong>Night Shift:</strong> 10:00 PM - 6:00 AM
+                                </li>
+                            </ul>
+                            <p class="mt-3">Contact us to request a shift change at least 2 days in advance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 10 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-rotate-left text-gold-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">Is there a refund policy?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>We offer a partial refund under certain conditions:</p>
+                            <ul class="mt-3 space-y-2">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Within 7
+                                    days: 80% refund</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Within
+                                    15 days: 50% refund</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-times text-red-500"></i> After 15
+                                    days: No refund</li>
+                            </ul>
+                            <p class="mt-3">Transfer to another person is allowed with proper documentation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 11 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-navy-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-chair text-navy-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">Can I reserve a specific seat?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>Yes! With our <strong class="text-navy-700">Priority Seating</strong> option (₹200/month
+                                extra), you can reserve your favorite seat. This ensures that your preferred spot is
+                                always available when you arrive.</p>
+                            <p class="mt-3">Regular members get seating on a first-come, first-served basis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 12 -->
+                <div
+                    class="faq-item bg-white rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-navy-200 transition-all overflow-hidden">
+                    <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                        onclick="toggleFaq(this)">
+                        <span class="flex items-center gap-4">
+                            <span
+                                class="w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-shield-halved text-gold-600"></i>
+                            </span>
+                            <span class="font-bold text-navy-800 text-lg">Is the library safe for late-night
+                                study?</span>
+                        </span>
+                        <span
+                            class="faq-icon w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <i class="fas fa-plus text-white text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <div class="pl-14 text-gray-600 leading-relaxed">
+                            <p>Absolutely! Safety is our top priority:</p>
+                            <ul class="mt-3 space-y-2">
+                                <li class="flex items-center gap-2"><i class="fas fa-video text-green-500"></i> 24/7
+                                    CCTV surveillance</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-user-shield text-green-500"></i>
+                                    Security staff present at night</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-door-closed text-green-500"></i>
+                                    Secure entry with ID verification</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-lightbulb text-green-500"></i>
+                                    Well-lit premises</li>
+                            </ul>
+                            <p class="mt-3">Many students prefer night shifts for uninterrupted study!</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Still Have Questions -->
+            <div class="mt-12 text-center bg-gradient-to-r from-navy-50 to-gold-50 rounded-3xl p-8 border border-navy-100"
+                data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-navy-800 mb-4">Still Have Questions?</h3>
+                <p class="text-gray-600 mb-6">Can't find the answer you're looking for? Feel free to reach out to us!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://wa.me/918287678088" target="_blank"
+                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-full shadow-lg gap-2">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        Chat on WhatsApp
+                    </a>
+                    <a href="tel:+918287678088"
+                        class="btn-hover inline-flex items-center justify-center px-8 py-4 bg-navy-600 hover:bg-navy-700 text-white font-bold rounded-full shadow-lg gap-2">
+                        <i class="fas fa-phone"></i>
+                        Call Us Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact & Map Section -->
-    <section id="contact" class="py-16 lg:py-20 bg-white relative overflow-hidden">
+    <section id="contact" class="py-16 lg:py-20 bg-gray-50 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                 <div
                     class="inline-flex items-center px-4 py-2 bg-navy-100 text-navy-700 rounded-full text-sm font-semibold mb-6">
-                    <i class="fas fa-map-location-dot mr-2"></i>
-                    Visit Us
+                    <i class="fas fa-envelope mr-2"></i>
+                    Get In Touch
                 </div>
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy-800 mb-6">
-                    Find Us at
-                    <span class="gradient-text">Madangir, Delhi</span>
+                    Contact Us at
+                    <span class="gradient-text">Students Library</span>
                 </h2>
+                <p class="text-lg text-gray-600">
+                    Have questions? Fill out the form below and we'll get back to you on WhatsApp instantly!
+                </p>
             </div>
 
-            <div class="">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
 
+                <!-- Contact Form -->
+                <div class="bg-white rounded-3xl shadow-xl p-8 lg:p-10 border border-gray-100" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-navy-800 mb-6 flex items-center">
 
-                <!-- Map -->
-                <div>
-                    <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-gold-200">
+                        Send us a Message
+                    </h3>
+
+                    <form id="contactForm" class="space-y-5">
+                        <!-- Name Field -->
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-navy-700 mb-2">
+                                Full Name <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <input type="text" id="name" name="name" required placeholder="Enter your full name"
+                                    class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-full focus:border-navy-500 outline-none transition-all text-gray-700 placeholder-gray-400">
+                            </div>
+                        </div>
+
+                        <!-- Phone Field -->
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold text-navy-700 mb-2">
+                                Phone Number <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                                    <i class="fas fa-phone"></i>
+                                </span>
+                                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number"
+                                    pattern="[0-9]{10}" maxlength="10"
+                                    class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-full focus:border-navy-500 outline-none transition-all text-gray-700 placeholder-gray-400">
+                            </div>
+                        </div>
+
+                        <!-- Subject Field -->
+                        <div>
+                            <label for="subject" class="block text-sm font-semibold text-navy-700 mb-2">
+                                Subject <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                                    <i class="fas fa-tag"></i>
+                                </span>
+                                <select id="subject" name="subject" required
+                                    class="w-full pl-12 pr-10 py-3 border-2 border-gray-200 rounded-full focus:border-navy-500 outline-none transition-all text-gray-700 appearance-none bg-white cursor-pointer">
+                                    <option value="" disabled selected>Select a subject</option>
+                                    <option value="Membership Inquiry">Membership Inquiry</option>
+                                    <option value="Pricing & Plans">Pricing & Plans</option>
+                                    <option value="Book a Trial">Book a Trial</option>
+                                    <option value="Facilities Query">Facilities Query</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <span
+                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Message Field -->
+                        <div>
+                            <label for="message" class="block text-sm font-semibold text-navy-700 mb-2">
+                                Your Message <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-4 text-gray-400">
+                                    <i class="fas fa-comment-dots"></i>
+                                </span>
+                                <textarea id="message" name="message" required rows="3"
+                                    placeholder="Write your message here..."
+                                    class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-2xl focus:border-navy-500 outline-none transition-all text-gray-700 placeholder-gray-400 resize-none"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button - Simple -->
+                        <button type="submit"
+                            class="btn-hover w-full py-4 px-8 bg-navy-700 hover:bg-navy-800 text-white font-bold rounded-full shadow-lg flex items-center justify-center gap-3 text-lg transition-all">
+
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Map & Contact Details -->
+                <div class="space-y-6" data-aos="fade-left">
+
+                    <!-- Map -->
+                    <div class="rounded-3xl overflow-hidden shadow-xl border-4 border-navy-100">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.628432193384!2d77.2349175!3d28.520824899999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce1006d02cff3%3A0xd7a541a0eda1e799!2sStudents%20Library!5e0!3m2!1sen!2sin!4v1775633596814!5m2!1sen!2sin"
-                            width="100%" class="w-full" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" class="w-full"></iframe>
+                    </div>
+
+                    <!-- Contact Details Cards -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+
+                        <!-- Phone -->
+                        <a href="tel:+918287678088"
+                            class="bg-white rounded-2xl p-5 shadow-lg border border-gray-100 hover:shadow-xl hover:border-navy-200 transition-all group">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-14 h-14 bg-navy-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-phone text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 font-medium">Call Us</p>
+                                    <p class="text-lg font-bold text-navy-700">+91 8287678088</p>
+                                </div>
+                            </div>
+                        </a>
+
+
+
+                        <!-- Email -->
+                        <a href="mailto:studentslibrary26@gmail.com"
+                            class="bg-white rounded-2xl p-5 shadow-lg border border-gray-100 hover:shadow-xl hover:border-navy-200 transition-all group">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-14 h-14 bg-gold-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-envelope text-navy-700 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 font-medium">Email Us</p>
+                                    <p class="text-sm font-bold text-navy-700 break-all">studentslibrary26@gmail.com</p>
+                                </div>
+                            </div>
+                        </a>
+
+
+                    </div>
+
+                    <!-- Address Card -->
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-14 h-14 bg-navy-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 font-medium mb-1">Our Address</p>
+                                <p class="text-navy-700 font-semibold leading-relaxed">
+                                    O1st/1, Shop no 1, F3, Durbal Ji Nath Marg, Block CPO, Block F,
+                                    Doctor Ambedkar Nagar, Madangir, New Delhi, Delhi 110062
+                                </p>
+                                <a href="https://maps.google.com/?q=Students+Library+Madangir+Delhi" target="_blank"
+                                    class="inline-flex items-center gap-2 mt-3 text-navy-600 font-semibold hover:text-navy-800 transition-colors">
+                                    <i class="fas fa-directions"></i>
+                                    Get Directions
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -1907,8 +1715,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-navy-900 text-gray-300 pt-20 pb-8 relative overflow-hidden">
-        <!-- Background Pattern -->
+    <footer class="bg-navy-800 text-gray-300 pt-20 pb-8 relative overflow-hidden">
         <div class="absolute inset-0 hero-pattern opacity-5"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -1918,10 +1725,6 @@
                     <a href="#" class="flex items-center space-x-3 mb-6">
                         <img src="./asset/logo.png" alt="Students Library Logo"
                             class="w-14 h-auto rounded-xl shadow-lg">
-                        <!-- <div>
-                            <span class="text-xl font-bold text-white">Students</span>
-                            <span class="text-xl font-bold text-gold-400">Library</span>
-                        </div> -->
                     </a>
                     <p class="text-gray-400 mb-6 leading-relaxed">
                         Your quiet, air-conditioned study sanctuary for focused preparation and academic excellence.
@@ -1929,19 +1732,19 @@
                     </p>
                     <div class="flex space-x-3">
                         <a href="#"
-                            class="w-10 h-10 bg-navy-800 rounded-lg flex items-center justify-center hover:bg-gold-400 hover:text-navy-800 transition-all duration-300 transform hover:-translate-y-1">
+                            class="w-10 h-10 bg-navy-700 rounded-full flex items-center justify-center hover:bg-gold-400 hover:text-navy-800 transition-all duration-300">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 bg-navy-800 rounded-lg flex items-center justify-center hover:bg-gold-400 hover:text-navy-800 transition-all duration-300 transform hover:-translate-y-1">
+                            class="w-10 h-10 bg-navy-700 rounded-full flex items-center justify-center hover:bg-gold-400 hover:text-navy-800 transition-all duration-300">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 bg-navy-800 rounded-lg flex items-center justify-center hover:bg-gold-400 hover:text-navy-800 transition-all duration-300 transform hover:-translate-y-1">
+                            class="w-10 h-10 bg-navy-700 rounded-full flex items-center justify-center hover:bg-gold-400 hover:text-navy-800 transition-all duration-300">
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a href="https://wa.me/918287678088"
-                            class="w-10 h-10 bg-navy-800 rounded-lg flex items-center justify-center hover:bg-green-500 text-white transition-all duration-300 transform hover:-translate-y-1">
+                            class="w-10 h-10 bg-navy-700 rounded-full flex items-center justify-center hover:bg-green-500 text-white transition-all duration-300">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
@@ -1981,15 +1784,12 @@
                         </li>
                         <li class="flex items-center"><i class="fas fa-snowflake text-gold-500 mr-3 w-5"></i>AC
                             Environment</li>
-                        <li class="flex items-center"><i class="fas fa-chair text-gold-500 mr-3 w-5"></i>New Seats
-                        </li>
+                        <li class="flex items-center"><i class="fas fa-chair text-gold-500 mr-3 w-5"></i>New Seats</li>
                         <li class="flex items-center"><i class="fas fa-lock text-gold-500 mr-3 w-5"></i>Personal Lockers
                         </li>
-
                         <li class="flex items-center"><i class="fas fa-video text-gold-500 mr-3 w-5"></i>24/7 Security
                         </li>
-                        <li class="flex items-center"><i class="fas fa-mug-hot text-gold-500 mr-3 w-5"></i>RO Water
-                        </li>
+                        <li class="flex items-center"><i class="fas fa-mug-hot text-gold-500 mr-3 w-5"></i>RO Water</li>
                     </ul>
                 </div>
 
@@ -2013,14 +1813,14 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-clock text-gold-400 mr-3 w-5"></i>
-                            <span class="text-green-400 font-semibold">Open 24/7</span>
+                            <span class="text-gold-400 font-semibold">Open 24/7</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <!-- Bottom Bar -->
-            <div class="border-t border-navy-800 pt-8">
+            <div class="border-t border-navy-700 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                     <p class="text-gray-500 text-sm text-center md:text-left">
                         © 2024 Students Library. All rights reserved. Made with ❤️ for students.
@@ -2050,225 +1850,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
-    <script>
-        // Preloader
-        window.addEventListener('load', function () {
-            setTimeout(() => {
-                document.getElementById('preloader').classList.add('loaded');
-            }, 1000);
-        });
-
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 50
-        });
-
-        // Initialize Hero Swiper
-        const heroSwiper = new Swiper('.hero-swiper', {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        // Initialize Services Swiper
-        const servicesSwiper = new Swiper('.services-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
-                1280: {
-                    slidesPerView: 4,
-                },
-            },
-        });
-
-        // Initialize Testimonials Swiper
-        const testimonialsSwiper = new Swiper('.testimonials-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-
-        // Initialize GLightbox
-        const lightbox = GLightbox({
-            touchNavigation: true,
-            loop: true,
-            autoplayVideos: true
-        });
-
-        // Mobile Menu
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeMenu = document.getElementById('closeMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-        function openMenu() {
-            hamburger.classList.add('active');
-            mobileMenu.classList.add('open');
-            menuOverlay.classList.remove('invisible', 'opacity-0');
-            menuOverlay.classList.add('opacity-100');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMenuFunc() {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('open');
-            menuOverlay.classList.add('invisible', 'opacity-0');
-            menuOverlay.classList.remove('opacity-100');
-            document.body.style.overflow = '';
-        }
-
-        hamburger.addEventListener('click', openMenu);
-        closeMenu.addEventListener('click', closeMenuFunc);
-        menuOverlay.addEventListener('click', closeMenuFunc);
-        mobileNavLinks.forEach(link => link.addEventListener('click', closeMenuFunc));
-
-        // Header Scroll Effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('glass-white', 'shadow-lg');
-                header.classList.remove('bg-transparent');
-            } else {
-                header.classList.remove('glass-white', 'shadow-lg');
-            }
-        });
-
-        // Scroll Progress Bar
-        const scrollProgress = document.getElementById('scrollProgress');
-        window.addEventListener('scroll', () => {
-            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = (window.pageYOffset / totalHeight) * 100;
-            scrollProgress.style.width = progress + '%';
-        });
-
-        // Back to Top Button
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Counter Animation
-        const counters = document.querySelectorAll('.counter');
-        const animateCounter = (counter) => {
-            const target = parseInt(counter.dataset.target);
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-
-            const updateCounter = () => {
-                current += step;
-                if (current < target) {
-                    counter.textContent = Math.floor(current) + '+';
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    counter.textContent = target + '+';
-                }
-            };
-
-            updateCounter();
-        };
-
-        // Intersection Observer for Counters
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-                    entry.target.classList.add('animated');
-                    animateCounter(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counters.forEach(counter => counterObserver.observe(counter));
-
-        // Active Navigation Link
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Parallax Effect (optional - for performance, only on desktop)
-        if (window.innerWidth > 1024) {
-            window.addEventListener('scroll', () => {
-                const parallaxElements = document.querySelectorAll('.parallax');
-                parallaxElements.forEach(el => {
-                    const speed = el.dataset.speed || 0.5;
-                    el.style.transform = `translateY(${window.scrollY * speed}px)`;
-                });
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 
 </body>
 

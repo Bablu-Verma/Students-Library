@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.testimonial-card p.italic,
+blockquote,
+q {
+    font-family: 'Merriweather', serif !important;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Simple Gradient */
+.gradient-bg {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e3a5f 100%);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #1e3a8a 0%, #ff0505 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Glass Effect */
+.glass-white {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Card Hover Effects */
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -12px rgba(30, 58, 138, 0.2);
+}
+
+/* Button Effects */
+.btn-hover {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.4);
+}
+
+/* Navigation */
+.nav-link {
+    position: relative;
+    padding: 8px 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #f0c14b;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+.hamburger {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.hamburger span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #1e3a8a;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger span:nth-child(3) {
+    bottom: 0;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 50%;
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    bottom: 50%;
+}
+
+/* Hero Background */
+.hero-bg {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #fdf7e3 100%);
+}
+
+.hero-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(30, 58, 138, 0.08) 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+/* Floating Elements */
+.float-element {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Image Overlays */
+.img-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-overlay img {
+    transition: transform 0.5s ease;
+}
+
+.img-overlay:hover img {
+    transform: scale(1.05);
+}
+
+/* Swiper Customization */
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: rgba(30, 58, 138, 0.3);
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #1e3a8a;
+    width: 30px;
+    border-radius: 6px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 18px;
+    color: #1e3a8a;
+    font-weight: bold;
+}
+
+/* Scroll Progress */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #1e3a8a, #f0c14b);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #1e3a8a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(30, 58, 138, 0.3);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #f0c14b;
+    color: #1e3a8a;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    animation: pulse-slow 2s infinite;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Gallery Grid */
+.gallery-item {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.gallery-item img {
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e3a8a;
+    border-radius: 4px;
+}
+
+/* Pricing Popular Card */
+.pricing-popular {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .pricing-popular {
+        transform: scale(1);
+    }
+
+    .whatsapp-btn {
+        bottom: 80px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* FAQ Animation */
+.faq-answer {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.faq-icon {
+    transition: all 0.3s ease;
+}
+
+.faq-icon.rotate-45 {
+    transform: rotate(45deg);
+}
